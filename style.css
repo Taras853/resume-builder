@@ -284,26 +284,6 @@ textarea {
   min-height: 60px;
 }
 
-@media (max-width: 600px) {
-  .progress-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .progress-line,
-  .progress-fill {
-    display: none;
-  }
-
-  .form-row > div {
-    flex: 1 1 100%;
-  }
-
-  .date-pair {
-    flex-direction: column;
-  }
-}
-
 /* -------------------------- */
 /* КРОК 3: Шаблони */
 /* -------------------------- */
@@ -536,4 +516,162 @@ textarea {
   background: #fff6f6;
   box-shadow: 0 2px 8px rgba(255, 59, 59, 0.08);
   animation: shake 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* -------------------------- */
+/* Адаптація для мобільних */
+/* -------------------------- */
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 40px;
+  }
+  .container {
+    padding: 12px;
+    border-radius: 12px;
+    min-width: unset;
+    width: 98vw;
+    max-width: 98vw;
+    margin-top: 10px;
+    box-shadow: 0 2px 12px rgba(60, 80, 180, 0.10);
+  }
+  h1 {
+    font-size: 1.2em;
+    margin-bottom: 16px;
+  }
+  .progress-container {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 98vw;
+  }
+  .progress-line,
+  .progress-fill {
+    display: none;
+  }
+  .step .circle {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 2px;
+  }
+  .step p {
+    font-size: 12px;
+  }
+  .form-row > div {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  .date-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  button {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 8px;
+    margin-top: 14px;
+  }
+  details {
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .template-selection {
+    flex-direction: column;
+    gap: 10px;
+    padding: 4px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .template-option {
+    width: 90vw;
+    min-width: unset;
+    max-width: 98vw;
+    border-radius: 10px;
+    padding: 6px;
+  }
+  .template-option .template-preview {
+    height: 120px;
+    font-size: 11px;
+    padding-top: 10px;
+    border-radius: 8px;
+  }
+  .template-option p {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .modal-content {
+    min-width: unset;
+    min-height: unset;
+    width: 98vw;
+    max-width: 98vw;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(60, 80, 180, 0.10);
+  }
+  #modalPreview {
+    width: 98vw;
+    height: 60vh;
+    min-width: unset;
+    min-height: unset;
+    max-width: 98vw;
+    max-height: 60vh;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 2px;
+  }
+  .close {
+    top: 4px;
+    right: 8px;
+    font-size: 22px;
+  }
+  .pdf-container {
+    min-width: unset !important;
+    width: 98vw !important;
+    padding: 8px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+  }
+  .error-message {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .template-selection.error {
+    border-radius: 10px;
+    padding: 4px;
+  }
+}
+
+/* Додатково для дуже маленьких екранів */
+@media (max-width: 400px) {
+  .container,
+  .modal-content,
+  #modalPreview,
+  .pdf-container {
+    width: 99vw !important;
+    max-width: 99vw !important;
+    padding: 2px !important;
+    border-radius: 6px !important;
+  }
+  .template-option {
+    width: 98vw;
+    border-radius: 6px;
+    padding: 2px;
+  }
+  .template-option .template-preview {
+    height: 90px;
+    font-size: 10px;
+    padding-top: 4px;
+    border-radius: 6px;
+  }
+  .close {
+    font-size: 18px;
+  }
 }
