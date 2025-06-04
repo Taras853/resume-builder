@@ -8,7 +8,7 @@
 }
 
 body {
-  background: linear-gradient(120deg, #f8fbff 0%, #e9f3fa 100%);
+  background: linear-gradient(120deg, #fffbe7 0%, #ffe066 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -284,6 +284,26 @@ textarea {
   min-height: 60px;
 }
 
+@media (max-width: 600px) {
+  .progress-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .progress-line,
+  .progress-fill {
+    display: none;
+  }
+
+  .form-row > div {
+    flex: 1 1 100%;
+  }
+
+  .date-pair {
+    flex-direction: column;
+  }
+}
+
 /* -------------------------- */
 /* КРОК 3: Шаблони */
 /* -------------------------- */
@@ -319,8 +339,8 @@ textarea {
 }
 
 .template-option.selected {
-  border: 2px solid #007bff;
-  box-shadow: 0 0 12px #007bff44;
+  border-color: #6c63ff;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.25);
 }
 
 .template-option .template-preview {
