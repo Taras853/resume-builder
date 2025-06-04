@@ -49,6 +49,9 @@ body {
   width: 100%;
   max-width: 700px;
   min-width: 0;
+  margin-bottom: 0;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .step {
@@ -99,12 +102,16 @@ body {
 .progress-line {
   position: absolute;
   top: 18px;
-  left: 85px;
-  right: 85px;
+  left: 0;
+  right: 0;
   height: 8px;
   background-color: #ccc;
   z-index: 1;
   border-radius: 4px;
+  margin: 0 0;
+  width: 100%;
+  max-width: 100%;
+  /* Масштабується разом з контейнером */
 }
 
 .progress-fill {
@@ -404,6 +411,8 @@ textarea {
   display: flex; align-items: center; justify-content: center;
   animation: modalFadeIn 0.5s cubic-bezier(0.4,0,0.2,1);
   backdrop-filter: blur(2px);
+  padding: 4vw; /* Додаємо відступи для мобільних */
+  box-sizing: border-box;
 }
 
 @keyframes modalFadeIn {
@@ -424,15 +433,16 @@ textarea {
   padding: 24px;
   border-radius: 16px;
   position: relative;
-  min-width: 480px;
-  min-height: 700px;
-  max-width: 95vw;
-  max-height: 95vh;
+  min-width: 420px;
+  min-height: 520px;
+  max-width: 98vw;
+  max-height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 8px 40px 0 rgba(60, 80, 180, 0.18), 0 2px 12px 0 rgba(108, 99, 255, 0.10);
   animation: modalContentAppear 0.6s cubic-bezier(0.4,0,0.2,1);
+  overflow: auto;
 }
 
 @keyframes modalContentAppear {
@@ -461,10 +471,10 @@ textarea {
 }
 
 #modalPreview {
-  width: 480px;
-  height: 700px;
+  width: 360px;
+  height: 480px;
   max-width: 90vw;
-  max-height: 80vh;
+  max-height: 60vh;
   background: #f0f4fa;
   margin-bottom: 20px;
   display: flex;
@@ -524,15 +534,25 @@ textarea {
 /* Адаптивність для мобільних */
 /* -------------------------- */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .progress-container {
     max-width: 100vw;
     padding: 0 8px;
     gap: 18px;
   }
+}
+
+@media (max-width: 700px) {
+  .progress-container {
+    max-width: 99vw;
+    padding: 0 4vw;
+    gap: 10px;
+  }
   .progress-line {
-    left: 40px;
-    right: 40px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -541,9 +561,9 @@ textarea {
     padding-top: 60px;
   }
   .container {
-    padding: 14px 4vw 18px 4vw;
+    padding: 14px 2vw 18px 2vw;
     border-radius: 12px;
-    max-width: 98vw;
+    max-width: 99vw;
     margin-top: 10px;
   }
   h1 {
@@ -566,16 +586,16 @@ textarea {
     padding: 4px;
   }
   .template-option {
-    width: 110px;
+    width: 100px;
     padding: 4px;
   }
   .template-option .template-preview {
-    height: 110px;
-    padding-top: 10px;
-    font-size: 11px;
+    height: 90px;
+    padding-top: 8px;
+    font-size: 10px;
   }
   .template-option p {
-    font-size: 13px;
+    font-size: 12px;
   }
   button {
     font-size: 15px;
@@ -596,23 +616,22 @@ textarea {
     padding: 8px;
     border-radius: 8px;
   }
-}
-
-/* Модальне вікно — мобільна адаптація */
-@media (max-width: 540px) {
+  .modal {
+    padding: 2vw !important;
+  }
   .modal-content {
-    min-width: 90vw;
-    max-width: 98vw;
-    min-height: 340px;
-    padding: 10px 2vw 18px 2vw;
-    border-radius: 12px;
+    min-width: 0;
+    max-width: 99vw;
+    min-height: 0;
+    padding: 8px 2vw 12px 2vw;
+    border-radius: 10px;
   }
   #modalPreview {
     width: 98vw;
     min-width: 0;
     max-width: 98vw;
-    height: 340px;
-    max-height: 60vh;
+    height: 220px;
+    max-height: 40vh;
     border-radius: 8px;
     margin-bottom: 10px;
     padding: 0;
@@ -624,30 +643,32 @@ textarea {
   }
 }
 
-/* Додатково для дуже малих екранів */
 @media (max-width: 400px) {
   .progress-container {
-    gap: 8px;
+    gap: 4px;
+    padding: 0 2vw;
   }
   .progress-line {
-    left: 18px;
-    right: 18px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
   }
   .step .circle {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
   .step p {
-    font-size: 11px;
+    font-size: 10px;
   }
   .modal-content {
-    min-width: 98vw;
+    min-width: 0;
     max-width: 99vw;
-    padding: 4px 1vw 10px 1vw;
+    padding: 4px 1vw 8px 1vw;
   }
   #modalPreview {
-    height: 220px;
-    max-height: 40vh;
+    height: 120px;
+    max-height: 30vh;
   }
 }
 
