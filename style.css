@@ -284,26 +284,6 @@ textarea {
   min-height: 60px;
 }
 
-@media (max-width: 600px) {
-  .progress-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .progress-line,
-  .progress-fill {
-    display: none;
-  }
-
-  .form-row > div {
-    flex: 1 1 100%;
-  }
-
-  .date-pair {
-    flex-direction: column;
-  }
-}
-
 /* -------------------------- */
 /* КРОК 3: Шаблони */
 /* -------------------------- */
@@ -339,8 +319,8 @@ textarea {
 }
 
 .template-option.selected {
-  border-color: #6c63ff;
-  box-shadow: 0 0 16px rgba(108, 99, 255, 0.25);
+  border: 2px solid #007bff;
+  box-shadow: 0 0 12px #007bff44;
 }
 
 .template-option .template-preview {
@@ -536,4 +516,90 @@ textarea {
   background: #fff6f6;
   box-shadow: 0 2px 8px rgba(255, 59, 59, 0.08);
   animation: shake 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* -------------------------- */
+/* Мобільна адаптація */
+/* -------------------------- */
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 30px;
+  }
+  .container {
+    padding: 12px;
+    border-radius: 10px;
+    max-width: 98vw;
+    margin-top: 10px;
+  }
+  .modal-content,
+  #modalPreview {
+    min-width: unset;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    min-height: unset;
+    height: 90vh !important;
+    max-height: 90vh !important;
+    padding: 8px !important;
+  }
+  #modalPreview {
+    padding: 0 !important;
+    border-radius: 8px;
+    height: 60vh !important;
+  }
+  h1 {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+  }
+  .template-selection {
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px;
+  }
+  .template-option {
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+    padding: 6px;
+  }
+  .template-option .template-preview {
+    height: 100px;
+    font-size: 11px;
+    padding-top: 8px;
+  }
+  button {
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 12px;
+  }
+  .form-row,
+  .date-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    font-size: 13px;
+    padding: 8px;
+  }
+  details {
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .progress-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .progress-line,
+  .progress-fill {
+    display: none;
+  }
+  .form-row > div {
+    flex: 1 1 100%;
+  }
+  .date-pair {
+    flex-direction: column;
+  }
 }
