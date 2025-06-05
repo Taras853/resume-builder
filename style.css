@@ -17,6 +17,114 @@ body {
   transition: background 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 
+/* --- MOBILE ADAPTATION --- */
+body.mobile {
+  padding-top: 32px;
+}
+
+body.mobile .container {
+  max-width: 98vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 10px 4vw 18px 4vw;
+}
+
+body.mobile .progress-container {
+  max-width: 99vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-bottom: 10px;
+  transform: scale(0.82);
+  transform-origin: top center;
+}
+
+body.mobile .progress-line {
+  left: 30px;
+  right: 30px;
+  height: 6px;
+}
+
+body.mobile .step .circle {
+  width: 32px;
+  height: 32px;
+}
+
+body.mobile .step .circle img {
+  width: 16px;
+  height: 16px;
+}
+
+body.mobile h1 {
+  font-size: 1.2em;
+  margin-bottom: 16px;
+}
+
+body.mobile .template-selection {
+  gap: 6px;
+  padding: 2px;
+}
+
+body.mobile .template-option {
+  width: 110px;
+  padding: 4px;
+}
+
+body.mobile .template-option .template-preview {
+  height: 120px;
+  padding-top: 10px;
+  font-size: 11px;
+}
+
+body.mobile .modal {
+  align-items: flex-start;
+  padding-top: 12vw;
+  padding-bottom: 12vw;
+}
+
+body.mobile .modal-content {
+  min-width: 98vw;
+  max-width: 98vw;
+  min-height: unset;
+  max-height: unset;
+  padding: 10px 0 18px 0;
+  border-radius: 12px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  align-items: center;
+  /* scale down modal content */
+  transform: scale(0.82);
+  transform-origin: top center;
+}
+
+body.mobile #modalPreview {
+  width: 320px !important;
+  height: 460px !important;
+  max-width: 90vw !important;
+  max-height: 60vw !important;
+  min-width: unset;
+  min-height: unset;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  /* scale down preview content */
+  transform: scale(0.65);
+  transform-origin: top center;
+  padding: 0;
+}
+
+body.mobile .close {
+  font-size: 22px;
+  top: 6px;
+  right: 10px;
+}
+
+body.mobile button {
+  font-size: 0.98em;
+  padding: 10px;
+  margin-top: 14px;
+}
+
+/* --- END MOBILE ADAPTATION --- */
+
 .container {
   background-color: #ffffff;
   padding: 30px;
@@ -48,10 +156,6 @@ body {
   gap: 40px;
   width: 100%;
   max-width: 700px;
-  min-width: 0;
-  margin-bottom: 0;
-  padding: 0 24px;
-  box-sizing: border-box;
 }
 
 .step {
@@ -61,7 +165,6 @@ body {
   z-index: 1;
   cursor: pointer;
   transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
-  min-width: 0;
 }
 
 .step .circle {
@@ -102,16 +205,12 @@ body {
 .progress-line {
   position: absolute;
   top: 18px;
-  left: 0;
-  right: 0;
+  left: 85px;
+  right: 85px;
   height: 8px;
   background-color: #ccc;
   z-index: 1;
   border-radius: 4px;
-  margin: 0 0;
-  width: 100%;
-  max-width: 100%;
-  /* Масштабується разом з контейнером */
 }
 
 .progress-fill {
@@ -293,6 +392,26 @@ textarea {
   min-height: 60px;
 }
 
+@media (max-width: 600px) {
+  .progress-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .progress-line,
+  .progress-fill {
+    display: none;
+  }
+
+  .form-row > div {
+    flex: 1 1 100%;
+  }
+
+  .date-pair {
+    flex-direction: column;
+  }
+}
+
 /* -------------------------- */
 /* КРОК 3: Шаблони */
 /* -------------------------- */
@@ -411,8 +530,6 @@ textarea {
   display: flex; align-items: center; justify-content: center;
   animation: modalFadeIn 0.5s cubic-bezier(0.4,0,0.2,1);
   backdrop-filter: blur(2px);
-  padding: 4vw; /* Додаємо відступи для мобільних */
-  box-sizing: border-box;
 }
 
 @keyframes modalFadeIn {
@@ -433,16 +550,15 @@ textarea {
   padding: 24px;
   border-radius: 16px;
   position: relative;
-  min-width: 420px;
-  min-height: 520px;
-  max-width: 98vw;
-  max-height: 92vh;
+  min-width: 480px;
+  min-height: 700px;
+  max-width: 95vw;
+  max-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 8px 40px 0 rgba(60, 80, 180, 0.18), 0 2px 12px 0 rgba(108, 99, 255, 0.10);
   animation: modalContentAppear 0.6s cubic-bezier(0.4,0,0.2,1);
-  overflow: auto;
 }
 
 @keyframes modalContentAppear {
@@ -471,10 +587,10 @@ textarea {
 }
 
 #modalPreview {
-  width: 360px;
-  height: 480px;
+  width: 480px;
+  height: 700px;
   max-width: 90vw;
-  max-height: 60vh;
+  max-height: 80vh;
   background: #f0f4fa;
   margin-bottom: 20px;
   display: flex;
@@ -528,152 +644,4 @@ textarea {
   background: #fff6f6;
   box-shadow: 0 2px 8px rgba(255, 59, 59, 0.08);
   animation: shake 0.3s cubic-bezier(0.4,0,0.2,1);
-}
-
-/* -------------------------- */
-/* Адаптивність для мобільних */
-/* -------------------------- */
-
-@media (max-width: 900px) {
-  .progress-container {
-    max-width: 100vw;
-    padding: 0 8px;
-    gap: 18px;
-  }
-}
-
-@media (max-width: 700px) {
-  .progress-container {
-    max-width: 99vw;
-    padding: 0 4vw;
-    gap: 10px;
-  }
-  .progress-line {
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 540px) {
-  body {
-    padding-top: 60px;
-  }
-  .container {
-    padding: 14px 2vw 18px 2vw;
-    border-radius: 12px;
-    max-width: 99vw;
-    margin-top: 10px;
-  }
-  h1 {
-    font-size: 1.25em;
-    margin-bottom: 16px;
-  }
-  .form-row, .date-pair {
-    gap: 10px;
-  }
-  .form-row > div {
-    min-width: 100%;
-    flex: 1 1 100%;
-  }
-  .date-pair {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .template-selection {
-    gap: 8px;
-    padding: 4px;
-  }
-  .template-option {
-    width: 100px;
-    padding: 4px;
-  }
-  .template-option .template-preview {
-    height: 90px;
-    padding-top: 8px;
-    font-size: 10px;
-  }
-  .template-option p {
-    font-size: 12px;
-  }
-  button {
-    font-size: 15px;
-    padding: 10px;
-    margin-top: 14px;
-    border-radius: 8px;
-  }
-  details {
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-  input[type="text"],
-  input[type="email"],
-  textarea,
-  select {
-    font-size: 13px;
-    padding: 8px;
-    border-radius: 8px;
-  }
-  .modal {
-    padding: 2vw !important;
-  }
-  .modal-content {
-    min-width: 0;
-    max-width: 99vw;
-    min-height: 0;
-    padding: 8px 2vw 12px 2vw;
-    border-radius: 10px;
-  }
-  #modalPreview {
-    width: 98vw;
-    min-width: 0;
-    max-width: 98vw;
-    height: 220px;
-    max-height: 40vh;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    padding: 0;
-  }
-  .close {
-    font-size: 2em;
-    top: 4px;
-    right: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .progress-container {
-    gap: 4px;
-    padding: 0 2vw;
-  }
-  .progress-line {
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-  .step .circle {
-    width: 24px;
-    height: 24px;
-  }
-  .step p {
-    font-size: 10px;
-  }
-  .modal-content {
-    min-width: 0;
-    max-width: 99vw;
-    padding: 4px 1vw 8px 1vw;
-  }
-  #modalPreview {
-    height: 120px;
-    max-height: 30vh;
-  }
-}
-
-/* Заборонити горизонтальний скрол */
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
 }
