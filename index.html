@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=1080, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Онлайн-Конструктор Резюме</title>
   <link rel="stylesheet" href="style.css"/>
   <!-- html2pdf.js для генерації PDF -->
@@ -243,17 +243,5 @@
     </div>
   </div>
   <script src="script.js"></script>
-  <script>
-    // Mobile adaptation: add 'mobile' class to body if screen is <=600px
-    function setMobileClass() {
-      if (window.innerWidth <= 600) {
-        document.body.classList.add('mobile');
-      } else {
-        document.body.classList.remove('mobile');
-      }
-    }
-    setMobileClass();
-    window.addEventListener('resize', setMobileClass);
-  </script>
 </body>
 </html>
