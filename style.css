@@ -17,114 +17,6 @@ body {
   transition: background 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* --- MOBILE ADAPTATION --- */
-body.mobile {
-  padding-top: 32px;
-}
-
-body.mobile .container {
-  max-width: 98vw;
-  margin-left: 1vw;
-  margin-right: 1vw;
-  padding: 10px 4vw 18px 4vw;
-}
-
-body.mobile .progress-container {
-  max-width: 99vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin-bottom: 10px;
-  transform: scale(0.82);
-  transform-origin: top center;
-}
-
-body.mobile .progress-line {
-  left: 30px;
-  right: 30px;
-  height: 6px;
-}
-
-body.mobile .step .circle {
-  width: 32px;
-  height: 32px;
-}
-
-body.mobile .step .circle img {
-  width: 16px;
-  height: 16px;
-}
-
-body.mobile h1 {
-  font-size: 1.2em;
-  margin-bottom: 16px;
-}
-
-body.mobile .template-selection {
-  gap: 6px;
-  padding: 2px;
-}
-
-body.mobile .template-option {
-  width: 110px;
-  padding: 4px;
-}
-
-body.mobile .template-option .template-preview {
-  height: 120px;
-  padding-top: 10px;
-  font-size: 11px;
-}
-
-body.mobile .modal {
-  align-items: flex-start;
-  padding-top: 12vw;
-  padding-bottom: 12vw;
-}
-
-body.mobile .modal-content {
-  min-width: 98vw;
-  max-width: 98vw;
-  min-height: unset;
-  max-height: unset;
-  padding: 10px 0 18px 0;
-  border-radius: 12px;
-  box-sizing: border-box;
-  margin: 0 auto;
-  align-items: center;
-  /* scale down modal content */
-  transform: scale(0.82);
-  transform-origin: top center;
-}
-
-body.mobile #modalPreview {
-  width: 320px !important;
-  height: 460px !important;
-  max-width: 90vw !important;
-  max-height: 60vw !important;
-  min-width: unset;
-  min-height: unset;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  /* scale down preview content */
-  transform: scale(0.65);
-  transform-origin: top center;
-  padding: 0;
-}
-
-body.mobile .close {
-  font-size: 22px;
-  top: 6px;
-  right: 10px;
-}
-
-body.mobile button {
-  font-size: 0.98em;
-  padding: 10px;
-  margin-top: 14px;
-}
-
-/* --- END MOBILE ADAPTATION --- */
-
 .container {
   background-color: #ffffff;
   padding: 30px;
@@ -644,4 +536,25 @@ textarea {
   background: #fff6f6;
   box-shadow: 0 2px 8px rgba(255, 59, 59, 0.08);
   animation: shake 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+@media (max-width: 1080px) {
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    min-width: 1080px;
+    min-height: 1920px;
+    overflow-x: auto;
+  }
+  body {
+    /* Scale the whole site down to fit the viewport width */
+    transform: scale(calc(100vw / 1080));
+    transform-origin: top left;
+    width: 1080px;
+    height: 1920px;
+    min-width: 1080px;
+    min-height: 1920px;
+    /* Prevent double scrollbars */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
